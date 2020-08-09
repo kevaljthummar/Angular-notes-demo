@@ -1,0 +1,54 @@
+<div class="container">
+    <form class="form-horizontal"
+        [formGroup]="form"
+        (ngSubmit)="Register()"
+        novalidate>
+
+        <div class="card">
+            <div class="card-header">Register User</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="col-md-2">Name</label>
+                    <div class="col-md-4">
+                        <input type="text"
+                               placeholder="Enter your user name"
+                               [(ngModel)]='user.name'
+                               formControlName='name'
+                               class="form-control">
+                        <span class="text-danger"
+                            *ngIf="isSubmitted && GetFC.name.touched && GetFC.name.errors">Invalid Name</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">Email</label>
+                    <div class="col-md-4">
+                        <input type="email" 
+                               placeholder="Enter your email"
+                               [(ngModel)]='user.email'
+                               formControlName="email"
+                               class="form-control">
+                        <span class="text-danger" 
+                            *ngIf="isSubmitted && GetFC.email.touched && GetFC.email.errors">Invalid Email</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2">PassWord</label>
+                    <div class="col-md-4">
+                        <input type="password" 
+                               placeholder="Enter your password"
+                               [(ngModel)]='user.password'
+                               formControlName="password"
+                               class="form-control">
+                        <span class="text-danger"
+                            *ngIf="isSubmitted && GetFC.password.touched && GetFC.password.errors">Invalid Password</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-right">
+                Alrady Have Account?<a href="#" [routerLink]="['/login']">Login</a>
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </div>
+
+    </form>
+</div>
