@@ -1,14 +1,13 @@
-import { Pipe, PipeTransform, IterableDiffers } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'filter'
+  name: 'customfilter'
 })
+export class CustomfilterPipe implements PipeTransform {
 
-export class FilterPipe implements PipeTransform {
-  transform(items: any[], value: string, fieldsToSearch: string[]): any[] {
-    // console.log(`items : ${items}`);
-    // console.log(`values : ${value}`);
-    // console.log(`fieldsToSearch : ${fieldsToSearch}`);
+  transform(items: any[], value: string, fieldsToSearch: string[]): any {
+    console.log(`values : ${value}`);
+    console.log(`fieldsToSearch : ${fieldsToSearch}`);
 
     // if no value return original content
     if (!value) { return items; }
@@ -30,4 +29,5 @@ export class FilterPipe implements PipeTransform {
       return ret;
     });
   }
+
 }

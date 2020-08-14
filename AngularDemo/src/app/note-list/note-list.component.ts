@@ -62,7 +62,7 @@ export class NoteListComponent implements OnInit {
   getnoteData() {
     const userData: any = this.mainService.getLocalStorage('loggedInUser');
     // tslint:disable-next-line: no-shadowed-variable
-    const url = '/note/' + userData.email;
+    const url = '/notes/' + userData.email;
 
     this.mainService.httpService.get(url).then((resp: any) => {
       // this.mainService.noteService.noteData = resp.data; // not working
@@ -70,7 +70,7 @@ export class NoteListComponent implements OnInit {
       // console.log(`${this.mainService.noteService.noteData.length}`);
       // console.log(resp.data);
       this.mainService.noteService.noteData.push(resp.data);
-      console.log(this.mainService.noteService.noteData.length);
+      console.log(this.mainService.noteService.noteData);
     }).catch(error => {
       console.log(`Error while geting notes: ${error}`);
     });

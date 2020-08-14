@@ -1,4 +1,3 @@
-import { FilterPipe } from './_helper/filter.pipe';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -13,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteCardComponent } from './note-card/note-card.component';
+import { CustomfilterPipe } from './_helper/customfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { NoteCardComponent } from './note-card/note-card.component';
     RegisterComponent,
     NoteListComponent,
     NoteCardComponent,
-    FilterPipe
+    CustomfilterPipe
   ],
   imports: [
     BrowserModule,
