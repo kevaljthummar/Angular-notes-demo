@@ -4,6 +4,7 @@
     </div>
 </div>
 
+
 <ng-template #notelist>
     <div class="card" *ngFor="let noteitem of mainService.noteService.noteData | customfilter: mainService.searchText: fieldsToSearch; let i = index">        
         <div class="card-header">
