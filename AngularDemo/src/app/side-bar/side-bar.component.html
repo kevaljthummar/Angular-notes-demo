@@ -1,0 +1,39 @@
+<div class="side-bar-container">
+    <div class="logo col-md-2" @fade>
+        <a class="logo-link" aria-label="Keep" href="">
+            <img class="logo-img" 
+                src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
+                srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, 
+                    https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x "
+                alt="" 
+                aria-hidden="true" 
+                style="width:40px;height:40px">
+            <span class="logo-label">Keep</span>
+        </a>
+    </div>
+    <ng-container *ngIf="authService.igLoggdin()">
+        <div class="col-md-6">
+            <input type="text" 
+            placeholder="Search note here..." 
+            class="form-control" 
+            [(ngModel)]="mainService.searchText">
+        </div>
+        
+
+        <div class="user-section col-md-2">
+            <div class="dropdown">
+                <button 
+                    class="btn btn-primary dropdown-toggle float-right" 
+                    type="button"
+                    data-toggle="dropdown">
+                        {{UserData.name}}
+                        <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li (click)='authService.logout()' 
+                        class="dropdown-item">Logout</li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,57 @@
+<div class="container">
+    <!-- Add New Note -->
+    <ng-container class="col-md-6" 
+            *ngIf='mainService.noteService.addNewCard'>
+        <div class="card">
+            <div class="card-header">
+                <button class="close" (click)='mainService.noteService.addNewCard = false'>
+                    &times;
+                </button>
+                <h5>
+                    {{mainService.noteService.noteItem.hasOwnProperty('_id') ? 'Edit ' : 'Add New '}}Note
+                </h5>
+            </div>
+            <div class="card-body">
+                <form class="form-horizontal" [formGroup]="form" (ngSubmit)="addNewNote()" novalidate>
+                    <input 
+                        type="text" 
+                        class="form-control"
+                        [(ngModel)]="mainService.noteService.noteItem.title"
+                        formControlName="title" >
+                    <span class="text-danger"
+                          *ngIf="isSubmited && List_FC.title.touched && List_FC.title.errors">
+                        Invalid Title
+                    </span>
+                    <input #takeNewNote type="text" 
+                           class="form-control"
+                           [(ngModel)]="mainService.noteService.noteItem.note"
+                           formControlName="note">
+                    <span class="text-danger"
+                          *ngIf="isSubmited && List_FC.note.touched && List_FC.note.errors">
+                          Invalid Note
+                    </span>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+
+    <!--  -->
+    <input type="text" 
+           class="form-control"
+           placeholder="Take a note"
+           [(ngModel)]="mainService.noteService.noteItem.note"
+           *ngIf="mainService.noteService.addNewCard === false"
+           (input)="enableAddNewNote()">
+    
+    <!-- If There are no note available -->
+    <div class="no-notes-container" *ngIf="!mainService.noteService.noteData.length">
+        <div class="image"></div>
+        <div class="label">Notes you add will appear here</div>
+    </div>
+
+    <!-- add note card page code here -->
+    <ng-container *ngIf="mainService.noteService.noteData.length">        
+        <note-card></note-card>
+    </ng-container>
+
+</div>
