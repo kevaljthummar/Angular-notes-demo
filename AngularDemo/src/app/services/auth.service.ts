@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+  // dependancy injector
   constructor(
     public mainService: MainService,
     private myRoute: Router
