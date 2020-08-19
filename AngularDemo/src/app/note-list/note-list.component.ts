@@ -69,7 +69,7 @@ export class NoteListComponent implements OnInit {
       // console.log(this.mainService.noteService.noteData);
       // console.log(`${this.mainService.noteService.noteData.length}`);
       // console.log(resp.data);
-      this.mainService.noteService.noteData.push(resp.data);
+      this.mainService.noteService.noteData = this.mainService.noteService.noteData.concat(resp.data);
       console.log(this.mainService.noteService.noteData);
     }).catch(error => {
       console.log(`Error while geting notes: ${error}`);
