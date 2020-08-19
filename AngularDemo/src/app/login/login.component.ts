@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
             this.auth.setTokan(token);
 
             // publish event to reset user data
-            this.auth.mainService.pubsubService.publishWithLast('userLoggedIn', token);
+            this.auth.mainService.pubsubService.publishEvent('userLoggedIn', token);
 
             // redirect to list
             this.myRoute.navigate(['list']);
