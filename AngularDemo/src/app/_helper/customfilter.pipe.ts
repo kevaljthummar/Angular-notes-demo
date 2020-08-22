@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CustomfilterPipe implements PipeTransform {
 
   transform(items: any[], value: string, fieldsToSearch: string[]): any {
-    console.log(`values : ${value}`);
-    console.log(`fieldsToSearch : ${fieldsToSearch}`);
+    // console.log(`values : ${value}`);
+    // console.log(`fieldsToSearch : ${fieldsToSearch}`);
 
     // if no value return original content
     if (!value) { return items; }
