@@ -65,12 +65,12 @@ export class NoteListComponent implements OnInit {
     const url = '/notes/' + userData.email;
 
     this.mainService.httpService.get(url).then((resp: any) => {
-      // this.mainService.noteService.noteData = resp.data; // not working
       // console.log(this.mainService.noteService.noteData);
       // console.log(`${this.mainService.noteService.noteData.length}`);
+      // console.log(this.mainService.noteService.noteData.concat(resp.data));
       // console.log(resp.data);
-      this.mainService.noteService.noteData = this.mainService.noteService.noteData.concat(resp.data);
-      console.log(this.mainService.noteService.noteData);
+      // this.mainService.noteService.noteData = this.mainService.noteService.noteData.concat(resp.data);
+      this.mainService.noteService.noteData = resp.data;
     }).catch(error => {
       console.log(`Error while geting notes: ${error}`);
     });
